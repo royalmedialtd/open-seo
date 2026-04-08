@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "open-seo",
+  "main": "src/server.ts",
+  "compatibility_date": "2025-09-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+  },
+  "workflows": [
+    {
+      "name": "site-audit-workflow",
+      "binding": "SITE_AUDIT_WORKFLOW",
+      "class_name": "SiteAuditWorkflow",
+    },
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "62e73ad0b0cb47cd87bd84abe3add0a8",
+    },
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "open-seo",
+      "database_id": "601c0b4f-caff-4e87-b46b-5c29e97cddea",
+      "migrations_dir": "drizzle",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "bucket_name": "open-seo",
+      "binding": "R2","preview_bucket_name": "open-seo",
+    },
+  ],
+}
